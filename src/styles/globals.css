@@ -1,0 +1,132 @@
+/*
+ * Global News Dashboard
+ * Author: Sophia Herman
+ * Purpose: Defines theme tokens, scrollbar styling, and accessibility-driven
+ * CSS variables used across the rebuilt dashboard.
+ */
+
+:root {
+  --font-size: 14px;
+  --font-scale: 1;
+  --line-height: 1.25;
+  --hit-padding: 8px;
+
+  --background: #0b1c2c;
+  --foreground: #dfe7ef;
+  --panel-blue: #496a94;
+  --overlay-blue: #3c5e87;
+  --accent-cyan: #58c1d8;
+  --light-text: #dfe7ef;
+  --muted-text: #8ba3b8;
+
+  --card: #1a2f42;
+  --card-foreground: #dfe7ef;
+  --border: rgba(143, 163, 184, 0.2);
+  --input: rgba(143, 163, 184, 0.3);
+  --input-background: #1a2f42;
+  --ring: #58c1d8;
+  --radius: 0.25rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-ring: var(--ring);
+  --color-panel-blue: var(--panel-blue);
+  --color-overlay-blue: var(--overlay-blue);
+  --color-accent-cyan: var(--accent-cyan);
+  --color-light-text: var(--light-text);
+  --color-muted-text: var(--muted-text);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    border-color: var(--border);
+    outline-color: color-mix(in srgb, var(--ring) 50%, transparent);
+  }
+
+  html {
+    font-size: calc(var(--font-size) * var(--font-scale));
+  }
+
+  body {
+    margin: 0;
+    background: var(--background);
+    color: var(--foreground);
+    font-family:
+      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button,
+  input,
+  select {
+    font: inherit;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--overlay-blue);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--panel-blue);
+}
+
+[data-font="small"] {
+  --font-scale: 0.9;
+}
+
+[data-font="default"] {
+  --font-scale: 1;
+}
+
+[data-font="large"] {
+  --font-scale: 1.1;
+}
+
+[data-font="xl"] {
+  --font-scale: 1.2;
+}
+
+.a11y-contrast {
+  --border: rgba(143, 163, 184, 0.5);
+  --input: rgba(143, 163, 184, 0.5);
+}
+
+.a11y-lineheight {
+  --line-height: 1.5;
+}
+
+.a11y-lineheight p,
+.a11y-lineheight li {
+  line-height: var(--line-height);
+}
+
+.a11y-targets {
+  --hit-padding: 12px;
+}
+
+.a11y-targets button,
+.a11y-targets a,
+.a11y-targets [role="button"] {
+  min-height: 44px;
+}

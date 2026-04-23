@@ -1,0 +1,43 @@
+{
+  "name": "global-news-dashboard-project",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:client": "vite",
+    "dev:server": "tsx watch server/index.ts",
+    "build": "tsc -b && tsc -p tsconfig.server.json && vite build",
+    "preview": "vite preview",
+    "start": "node dist-server/server/index.js",
+    "test": "vitest run",
+    "db:setup": "tsx server/scripts/setupDatabase.ts",
+    "db:verify": "tsx server/scripts/verifyDatabase.ts"
+  },
+  "dependencies": {
+    "@vercel/functions": "^2.2.13",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "lucide-react": "^0.487.0",
+    "pg": "^8.16.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.15.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.1.12",
+    "@types/express": "^5.0.3",
+    "@types/node": "^22.15.3",
+    "@types/pg": "^8.15.5",
+    "@vercel/node": "^5.3.24",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.7.0",
+    "concurrently": "^9.2.1",
+    "tailwindcss": "4.1.12",
+    "tsx": "^4.20.6",
+    "typescript": "^5.8.3",
+    "vite": "6.3.5",
+    "vitest": "^3.2.4"
+  }
+}

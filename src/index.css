@@ -1,0 +1,21 @@
+/*
+ * Global News Dashboard
+ * Author: Sophia Herman
+ * Purpose: Loads Tailwind plus the shared global style layer for the rebuilt
+ * dashboard and defines the root layout sizing for the app shell.
+ */
+
+@import "tailwindcss";
+@import "./styles/globals.css";
+
+@source "./**/*.{ts,tsx}";
+
+@layer base {
+  html,
+  body,
+  #root {
+    min-height: 100vh;
+    height: 100%;
+    margin: 0;
+  }
+}

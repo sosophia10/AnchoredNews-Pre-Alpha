@@ -1,0 +1,19 @@
+# Global News Dashboard
+# Author: Sophia Herman
+# Purpose: Keeps local secrets, build artifacts, dependencies, and Vercel
+# metadata out of version control when publishing the project.
+
+node_modules/
+dist/
+dist-server/
+.env
+.env.*
+!.env.example
+.vercel/
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
